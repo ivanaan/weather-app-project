@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weatherappproject</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapcode">
+        <div class="row">
+          <div class="col-4" id="weather-today">
+            <h1>
+              <span id="main-icon"
+                ><img src="pics/sun.png" width="85" alt="mainIcon"
+              /></span>
+            </h1>
+
+            <h2>21℃</h2>
+          </div>
+          <div class="col-8" id="city-info">
+            <h3>
+              <ul class="city-list">
+                <li><span class="city">Prilep</span>,<small> 31 Jan</small></li>
+                <li><small>Monday, 22:00</small></li>
+                <br />
+                <li><span class="description">Cloudy</span></li>
+              </ul>
+            </h3>
+          </div>
+        </div>
+        <div class="weather-form">
+          <form class="search-city" id="search-city">
+            <input
+              type="text"
+              placeholder="Search for a city..."
+              class="form-control"
+              id="city-input"
+              autofocus="on"
+            /><br />
+            <input type="submit" value="search" class="btn btn-dark" />
+            <input
+              type="button"
+              value="Current location"
+              class="btn btn-light"
+            />
+          </form>
+        </div>
+        <div class="row" id="forecast">
+          <div class="col-3">
+            12:00 <br /><img src="pics/cloudy.png" width="52" alt="" /><br />20℃
+          </div>
+          <div class="col-3">
+            18:00 <br /><img src="pics/rain.png" width="52" alt="" /><br />19℃
+          </div>
+          <div class="col-3">
+            22:00 <br /><img
+              src="pics/cloudy-night.png"
+              width="52"
+              alt=""
+            /><br />19℃
+          </div>
+          <div class="col-3">
+            02:00 <br /><img
+              src="pics/cloudy-night-rain.png"
+              width="52"
+              alt=""
+            /><br />19℃
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <ul class="extras">
+              <li>Country:</li>
+              <li>Humidity:%</li>
+              <li>Wind:km/h</li>
+            </ul>
+          </div>
+          <div class="col-8">
+            <p class="suggestion"><em>"Maybe have an umbrella ready!"</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/app.js"></script>
+  </body>
+</html>
