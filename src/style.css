@@ -28,6 +28,9 @@ ul {
   list-style: none;
   margin: 10px;
 }
+li:first-letter {
+  text-transform: capitalize;
+}
 #city-input {
   background-color: transparent;
   box-shadow: 3px 3px 5px;
@@ -46,8 +49,8 @@ ul {
 .extras {
   margin: 20px;
   text-align: left;
-  font-size: 14px;
   padding: 0;
+  font-size: 14px;
 }
 .suggestion {
   margin: 30px;
