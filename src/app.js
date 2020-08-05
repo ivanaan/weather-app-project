@@ -1,5 +1,4 @@
 let now = new Date();
-console.log(now);
 let hours = now.getHours();
 let min = now.getMinutes();
 if (hours < 10) {
@@ -69,7 +68,6 @@ function displayTemperature(response) {
 }
 function search(city) {
   let apiKey = "bc621a3a3a6238705b7e128b25c68a1a";
-
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -81,3 +79,16 @@ function searchCity(event) {
 search("Madrid");
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", searchCity);
+
+function getCurrentLocationTemp(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "bc621a3a3a6238705b7e128b25c68a1a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function getCurrentLocation() {
+  navigator.geolocation.getCurrentPosition(getCurrentLocationTemp);
+}
+let button = document.querySelector("#button");
+button.addEventListener("click", getCurrentLocation);
