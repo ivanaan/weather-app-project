@@ -26,10 +26,19 @@ h1 {
 }
 ul {
   list-style: none;
-  margin: 10px;
+  margin-bottom: 5px;
 }
 li:first-letter {
   text-transform: capitalize;
+}
+#dateMonth {
+  font-size: 22px;
+}
+#description {
+  font-size: 25px;
+  color: #e2e6ea;
+  font-weight: 900;
+  text-shadow: 1px 1px #48484a;
 }
 #city-input {
   background-color: transparent;
