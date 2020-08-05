@@ -53,7 +53,9 @@ function displayTemperature(response) {
   let wind = document.querySelector("#wind");
   let mainIcon = document.querySelector("#main-icon");
 
-  mainTemp.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+
+  mainTemp.innerHTML = Math.round(celsiusTemp);
   city.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
   maxTemp.innerHTML = Math.round(response.data.main.temp_max);
@@ -76,7 +78,7 @@ function searchCity(event) {
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
 }
-search("Madrid");
+
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", searchCity);
 
@@ -85,6 +87,7 @@ function getCurrentLocationTemp(position) {
   let lon = position.coords.longitude;
   let apiKey = "bc621a3a3a6238705b7e128b25c68a1a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
   axios.get(apiUrl).then(displayTemperature);
 }
 function getCurrentLocation() {
@@ -92,3 +95,27 @@ function getCurrentLocation() {
 }
 let button = document.querySelector("#button");
 button.addEventListener("click", getCurrentLocation);
+
+let celsiusTemp = null;
+
+function displayFahreheitTemp(event) {
+  event.preventDefault();
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let temp = document.querySelector("#mainTemperature");
+  let fahrenheitElement = (celsiusTemp * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitElement);
+}
+function displayCelsiusTemp(even) {
+  even.preventDefault();
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let temp = document.querySelector("#mainTemperature");
+  temp.innerHTML = Math.round(celsiusTemp);
+}
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", displayFahreheitTemp);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", displayCelsiusTemp);
+search("Madrid");

@@ -26,16 +26,21 @@
 
             <h2>
               <strong id="mainTemperature">21</strong
-              ><sup><a href="#">&deg;C</a> |<a href="#">&deg;F</a></sup>
+              ><sup
+                ><a href="#" id="celsius" class="active">&deg;C</a> |<a
+                  href="#"
+                  id="fahrenheit"
+                  >&deg;F</a
+                ></sup
+              >
             </h2>
           </div>
           <div class="col-8" id="city-info">
             <h3>
               <ul class="city-list">
                 <li>
-                  <span id="city">Prilep</span>,<small id="dateMonth">
-                    31 Jan</small
-                  >
+                  <span id="city">Prilep</span><br />
+                  <small id="dateMonth"> 31 Jan</small>
                 </li>
                 <li><small id="dayTime">Monday, 22:00</small></li>
                 <br />
@@ -59,6 +64,7 @@
               type="button"
               value="Current location"
               class="btn btn-light"
+              id="button"
             />
           </form>
         </div>

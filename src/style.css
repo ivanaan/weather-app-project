@@ -21,8 +21,16 @@
 h1 {
   margin-bottom: 22px;
 }
+
 #weather-today {
   text-align: right;
+}
+a.active {
+  color: #343a40;
+  cursor: default;
+}
+a.active:hover {
+  text-decoration: none;
 }
 ul {
   list-style: none;
@@ -32,8 +40,12 @@ li:first-letter {
   text-transform: capitalize;
 }
 #dateMonth {
-  font-size: 22px;
+  font-size: 18px;
 }
+#dayTime {
+  font-size: 18px;
+}
+
 #description {
   font-size: 25px;
   color: #e2e6ea;
