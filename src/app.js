@@ -114,12 +114,7 @@ function search(city) {
 function searchCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
-
-  if (cityInput.value === true) {
-    searchCity();
-  } else {
-    alert(`Are you sure? 🤥`);
-  }
+  search(cityInput.value);
 }
 
 let form = document.querySelector("#search-city");
