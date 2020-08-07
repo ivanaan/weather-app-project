@@ -31,10 +31,8 @@ function formatDate(timestamp) {
   ];
 
   let month = months[now.getMonth()];
-
   return `${today} ${month}, ${day} ${formatTime(timestamp)}`;
 }
-
 function formatTime(timestamp) {
   let now = new Date(timestamp);
   let hours = now.getHours();
@@ -123,6 +121,7 @@ function searchCity(event) {
     alert(`Are you sure? 🤥`);
   }
 }
+
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", searchCity);
 
