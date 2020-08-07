@@ -11,9 +11,6 @@ function formatDate(timestamp) {
   ];
   let day = days[now.getDay()];
 
-  let dayTime = document.querySelector("#dayTime");
-  dayTime.innerHTML = `${day} ${formatTime(timestamp)}`;
-
   let today = now.getDate();
   if (today < 10) {
     today = `0${today}`;
@@ -34,8 +31,8 @@ function formatDate(timestamp) {
   ];
 
   let month = months[now.getMonth()];
-  let dateMonth = document.querySelector("#dateMonth");
-  dateMonth.innerHTML = `${today} ${month}`;
+
+  return `${today} ${month}, ${day} ${formatTime(timestamp)}`;
 }
 
 function formatTime(timestamp) {
@@ -52,25 +49,26 @@ function formatTime(timestamp) {
 }
 
 function displayTemperature(response) {
-  let mainTemp = document.querySelector("#mainTemperature");
   let city = document.querySelector("#city");
+  let mainTemp = document.querySelector("#mainTemperature");
   let description = document.querySelector("#description");
   let maxTemp = document.querySelector("#maxTemp");
   let minTemp = document.querySelector("#minTemp");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
   let mainIcon = document.querySelector("#main-icon");
+  let todayDate = document.querySelector("#today-date");
 
   celsiusTemp = response.data.main.temp;
 
-  mainTemp.innerHTML = Math.round(celsiusTemp);
   city.innerHTML = response.data.name;
+  mainTemp.innerHTML = Math.round(celsiusTemp);
   description.innerHTML = response.data.weather[0].description;
   maxTemp.innerHTML = Math.round(response.data.main.temp_max);
   minTemp.innerHTML = Math.round(response.data.main.temp_min);
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
-
+  todayDate.innerHTML = formatDate(response.data.dt * 1000);
   mainIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -92,7 +90,7 @@ function displayForecast(response) {
               src="http://openweathermap.org/img/wn/${
                 forecast.weather[0].icon
               }@2x.png"
-              width="52"
+              
               alt=""
               id="img-one"
             /><br /><span id="temp-max1">${Math.round(
@@ -110,13 +108,21 @@ function search(city) {
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(formatDate);
 }
+
 function searchCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
-  search(cityInput.value);
-}
 
+  if (cityInput.value === true) {
+    searchCity();
+  } else {
+    alert(`Are you sure? 🤥`);
+  }
+}
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", searchCity);
 
@@ -159,4 +165,5 @@ fahrenheit.addEventListener("click", displayFahreheitTemp);
 
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", displayCelsiusTemp);
+
 search("Prilep");
