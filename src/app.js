@@ -10,7 +10,29 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[now.getDay()];
+  if (day === "Monday") {
+    let suggestion = document.querySelector("#suggestion");
+    suggestion.innerHTML = `Do not walk away...stare it in the eye, wave your arms and make loud noises...and slowly move towards Tuesday.`;
+  }
+  if (day === "Tuesday") {
+    suggestion.innerHTML = `With great power comes great electricity bill.`;
+  }
+  if (day === "Wednesday") {
+    suggestion.innerHTML = `Knowledge is knowing a tomato is a fruit; Wisdom is not putting it in a fruit salad 🍅`;
+  }
+  if (day === "Thursday") {
+    suggestion.innerHTML = `Haikus are easy. But sometimes they don’t make sense. Refrigerator.`;
+  }
+  if (day === "Friday") {
+    suggestion.innerHTML = `There’s just one legitimate synonym for Friday: Boom Shakalaka.`;
+  }
 
+  if (day === "Saturday") {
+    suggestion.innerHTML = `Relax, it's the weekend! Just don't blink or it will be over.`;
+  }
+  if (day === "Sunday") {
+    suggestion.innerHTML = `The future is shaped by your dreams...so go back to sleep.`;
+  }
   let today = now.getDate();
   if (today < 10) {
     today = `0${today}`;
@@ -60,6 +82,7 @@ function displayTemperature(response) {
   celsiusTemp = response.data.main.temp;
 
   city.innerHTML = response.data.name;
+
   mainTemp.innerHTML = Math.round(celsiusTemp);
   description.innerHTML = response.data.weather[0].description;
   maxTemp.innerHTML = Math.round(response.data.main.temp_max);
@@ -99,6 +122,7 @@ function displayForecast(response) {
           </div>`;
   }
 }
+
 function search(city) {
   let apiKey = "bc621a3a3a6238705b7e128b25c68a1a";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
