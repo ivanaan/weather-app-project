@@ -21,6 +21,7 @@
 }
 h1 {
   margin-bottom: 8px;
+  padding: 0;
 }
 
 #weather-today {
