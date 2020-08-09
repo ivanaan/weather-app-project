@@ -112,7 +112,7 @@ function displayForecast(response) {
                 forecast.weather[0].icon
               }@2x.png"
               
-              alt=""
+            
               id="img-one"
             /><br /><span id="temp-max1">${Math.round(
               forecast.main.temp_max
