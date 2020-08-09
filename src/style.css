@@ -11,7 +11,7 @@
   height: 560px;
   margin: auto;
   margin-top: 15px;
-  padding: 20px;
+  padding: 25px;
   border: none;
   border-radius: 5px;
   box-shadow: 5px 6px 14px;
@@ -73,6 +73,7 @@ li:first-letter {
 #forecast {
   border-radius: 4px;
   box-shadow: 3px 3px 5px;
+  padding: 0;
 }
 .extras {
   margin: 10px;
