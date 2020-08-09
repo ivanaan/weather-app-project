@@ -94,7 +94,6 @@ function displayTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  mainIcon.setAttribute("alt", response.data.weather[0].description);
 }
 function displayForecast(response) {
   let forecastDays = document.querySelector("#forecast");
@@ -112,7 +111,7 @@ function displayForecast(response) {
                 forecast.weather[0].icon
               }@2x.png"
               
-            
+              alt=""
               id="img-one"
             /><br /><span id="temp-max1">${Math.round(
               forecast.main.temp_max
