@@ -4,6 +4,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .wrapcode {
+  position: relative;
   background-image: radial-gradient(#00f2fe 0%, #4facfe 100%);
   background-size: cover;
   max-width: 500px;
